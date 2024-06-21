@@ -7,41 +7,39 @@ import { VideoDetailsComponent } from './views/video-details/video-details.compo
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo:"home",
-  },
-  {
-    path: 'home',
     component: HomeComponent,
     data: {
-      breadcrumb: 'Home',
+      breadcrumb: 'home',
     },
-    children: [
-      {
-        path: 'details',
-        component: PlayerDetailsComponent,
-        data: {
-          breadcrumb: 'Details',
+  },
+  {
+    path: 'details',
+    component: PlayerDetailsComponent,
+     data: {
+          breadcrumb: 'details',
         },
-        children: [
-          {
-            path: 'videos',
-            component: VideoDetailsComponent,
-            data: {
-              breadcrumb: 'Videos',
-            },
-          },
-        ],
-      },
+    children: [
+      // {
+      //   path:"",
+      //   component: PlayerDetailsComponent,
+      //   // data: {
+      //   //   breadcrumb: 'details',
+      //   // },
+      // },
+      
+    
     ],
   },
-//   {
-//     path:"details",component:PlayerDetailsComponent
-//   ,data:{
-// "breadcrumb":"details"
-//   }
-//   },
-  {path:"**",component:HomeComponent} 
+  {
+    path: 'details/videos',
+    component:VideoDetailsComponent,
+    data: {
+      breadcrumb: 'videos',
+    }
+    
+  },
+
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
