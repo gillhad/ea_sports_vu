@@ -12,6 +12,6 @@ router =inject(Router)
 activatedRoute = inject(ActivatedRoute);
 
   navigate(){
-this.router.navigate(['home',"details"],{relativeTo:this.activatedRoute})
+this.router.navigate(['/details'],{relativeTo:this.activatedRoute})
   }
 }

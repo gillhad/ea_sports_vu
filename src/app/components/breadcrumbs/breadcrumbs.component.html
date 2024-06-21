@@ -1,4 +1,5 @@
-<nav>
+<nav *ngIf="breadcrumbs.length>1
+">
     <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
       <ng-container *ngIf="!last">
         <a [routerLink]="breadcrumb.url">{{ breadcrumb.label.toLowerCase() | translate}}</a> &gt;

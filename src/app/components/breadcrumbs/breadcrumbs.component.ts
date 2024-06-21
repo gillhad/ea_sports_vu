@@ -16,7 +16,7 @@ export class BreadcrumbsComponent implements OnInit{
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       this.breadcrumbs = this.breadcrumbService.breadcrumbs;
-      console.log(this.breadcrumbs);
+      // console.log("he recibido ",this.breadcrumbs);
     });
   }
 
