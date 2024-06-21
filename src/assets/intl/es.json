@@ -1,0 +1,20 @@
+{
+    "home":"Inicio",
+    "details":"Detalles",
+    "videos":"Videos",
+
+    "back":"Atrás",
+    
+    "@@_player_details":"",
+    "diving":"Paradas",
+    "handling":"Manejo",
+    "reflexes":"Reflejos",
+    "speed":"Velocidad",
+    "positioning":"Posicionamiento",
+    "pace":"Ritmo",
+    "shooting":"Disparo",
+    "passing":"pases",
+    "dribbling":"Regates",
+    "clean":"Portería vacía",
+    "physical":"Físico"
+}

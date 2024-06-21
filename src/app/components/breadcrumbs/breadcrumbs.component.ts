@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './breadcrumbs.component.html',
   styleUrl: './breadcrumbs.component.scss'
 })
-export class BreadcrumbsComponent implements OnInit, OnChanges{
+export class BreadcrumbsComponent implements OnInit{
   breadcrumbs: Array<{ label: string, url: string }> = [];
   private breadcrumbService = inject(BreadcrumbsService)
   private router = inject(Router)
@@ -16,11 +16,8 @@ export class BreadcrumbsComponent implements OnInit, OnChanges{
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       this.breadcrumbs = this.breadcrumbService.breadcrumbs;
-      console.log ("recibimos breadcrumbs: ",this.breadcrumbs)
+      console.log(this.breadcrumbs);
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("hay cambios en los breadcrums",changes)
-  }
 }
