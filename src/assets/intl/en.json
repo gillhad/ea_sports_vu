@@ -1,0 +1,20 @@
+{
+    "home":"Home",
+    "details":"Details",
+    "videos":"Media",
+
+    "back":"Back",
+    
+    "@@_player_details":"",
+    "diving":"Diving",
+    "handling":"Handling",
+    "reflexes":"Reflexes",
+    "speed":"Speed",
+    "positioning":"Positioning",
+    "pace":"Pace",
+    "shooting":"Shooting",
+    "passing":"Passing",
+    "dribbling":"Dribbling",
+    "clean":"Clean",
+    "physical":"Physics"
+}
