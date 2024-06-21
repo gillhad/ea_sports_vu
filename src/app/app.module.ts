@@ -12,9 +12,10 @@ import { HomeComponent } from './views/home/home.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
 import { VideoDetailsComponent } from './views/video-details/video-details.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CoreModule } from './modules/core/core.module';
 export function HttpLoaderFactory(http: HttpClient) {
 return new TranslateHttpLoader(http, './assets/intl/','.json');
 }
@@ -23,17 +24,14 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
   declarations: [
     AppComponent,
     PlayerCardComponent,
-    HeaderComponent,
-    FooterComponent,
     VideoCardComponent,
     StatsComponent,
     HomeComponent,
     PlayerDetailsComponent,
     VideoDetailsComponent,
-    BreadcrumbsComponent,
-    
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     TranslateModule.forRoot({
@@ -44,7 +42,7 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
       }
       })
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
