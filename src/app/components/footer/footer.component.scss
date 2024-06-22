@@ -1,0 +1,27 @@
+@import '../../styles/variables.styles.scss';
+
+.footer-container {
+    background-color: $backgroud-color;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 18px;
+    a {
+        display: flex;
+        margin: 0.5em;
+        margin-left: 3em;
+        color: #d6d6d6;
+        align-items: center;
+        .icon-link-arrow {
+            margin-left: 0.5em;
+            font-size: 16px;
+        }
+        &:hover {
+            color: $color-font-dark;
+        }
+    }
+}
