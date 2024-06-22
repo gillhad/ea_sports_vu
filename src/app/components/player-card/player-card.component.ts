@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-player-card',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './player-card.component.scss'
 })
 export class PlayerCardComponent {
+  @Input() player!: Player;
+  showError = false;
 
+  constructor(private router: Router) {}
+
+  onImageClick(): void {
+    this.router.navigate(['/player-details', this.player.name]);
+  }
+
+  handleError(event: Event): void {
+    this.showError = true;
+  }
 }
