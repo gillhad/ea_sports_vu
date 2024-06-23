@@ -14,7 +14,6 @@ export class PlayerCardComponent {
   constructor(private router: Router) {}
 
   onImageClick(): void {
-    console.log('navigation', this.player);
     this.router.navigate(['/details'], {
       state: { data: this.player },
     });

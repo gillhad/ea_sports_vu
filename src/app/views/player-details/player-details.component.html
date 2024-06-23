@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="buttons">
-      <button [routerLink]="['']">{{"back" | translate | uppercase}}</button>
-    <button [routerLink]="['videos']">{{"media" | translate | uppercase}}</button>
+      <button class="button-style" (click)="navigateBack()">{{"back" | translate | uppercase}}</button>
+    <button class="button-style" (click)="navigate()">{{"media" | translate | uppercase}}</button>
   </div>
 </article>
