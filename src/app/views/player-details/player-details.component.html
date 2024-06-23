@@ -2,7 +2,7 @@
   <div class="player-info">
     <div class="detail-image">
       <img
-        src="https://media.contentapi.ea.com/content/dam/ea/easfc/fc-24/ratings/common/full/player-shields/en/158023.png.adapt.265w.png"
+        src="{{player?.image2}}"
       />
     </div>
     <div class="stats-container" *ngFor="let stat of player?.stats">
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="buttons">
-      <button [routerLink]="['videos']">{{"back" | translate | uppercase}}</button>
+      <button [routerLink]="['']">{{"back" | translate | uppercase}}</button>
     <button [routerLink]="['videos']">{{"media" | translate | uppercase}}</button>
   </div>
 </article>
