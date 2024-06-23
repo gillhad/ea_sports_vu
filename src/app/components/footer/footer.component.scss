@@ -1,7 +1,7 @@
 @import '../../styles/variables.styles.scss';
 
 .footer-container {
-    background-color: $backgroud-color;
+    background-color: $background-color;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -14,7 +14,7 @@
         display: flex;
         margin: 0.5em;
         margin-left: 3em;
-        color: #d6d6d6;
+        color: $color-font-light;
         align-items: center;
         .icon-link-arrow {
             margin-left: 0.5em;
