@@ -6,3 +6,17 @@ height: 8px;
  position:absolute;
 }
 
+@mixin buttons{
+    border-radius: 50px;
+    height: 40px;
+    width: 90px; 
+    margin-right: 20px;
+    padding: 0px 7px 0px 7px;
+    cursor: pointer;
+    color: $color-font-dark;
+    background-color: $background-color;
+    font-weight: bold;
+    &:hover{
+        opacity: .7;
+    } 
+}
