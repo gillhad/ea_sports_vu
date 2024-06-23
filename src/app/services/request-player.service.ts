@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
 import { IPlayer } from '../interfaces/player.interface';
 import { Observable } from 'rxjs';
+import * as CryptoJS from 'crypto-js';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +14,23 @@ import { Observable } from 'rxjs';
 export class RequestPlayerService {
   httpClient = inject(HttpClient);
   
+  path = "../../assets/players.json";
+
+  constructor(){
+this.getPath();
+  }
+
+  getPath(){
+    this.path =  CryptoJS.AES.decrypt(environment.path, environment.apiKey).toString(CryptoJS.enc.Utf8);
+    console.log(this.path);
+  }
+
   getPlayers(): Player[] {
     let players: Player[] = [];
     players = [];
     try {
       this.httpClient
-        .get('../../assets/players.json')
+        .get(this.path)
         .subscribe((playerArray: Data) => {
           playerArray['players'].forEach((playerItem: IPlayer) => {
             players.push(new Player(playerItem));
