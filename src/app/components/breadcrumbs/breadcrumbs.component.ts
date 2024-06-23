@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 import { Router } from '@angular/router';
 

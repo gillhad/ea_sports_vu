@@ -1,7 +1,7 @@
 {
     "home":"Home",
     "details":"Details",
-    "videos":"Media",
+    "media":"Media",
 
     "back":"Back",
     
@@ -14,7 +14,8 @@
     "pace":"Pace",
     "shooting":"Shooting",
     "passing":"Passing",
-    "dribbling":"Dribbling",
+    "dribling":"Dribbling",
     "clean":"Clean",
-    "physical":"Physics"
+    "physical":"Physics",
+    "defending":"Defending"
 }

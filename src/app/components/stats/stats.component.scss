@@ -1,0 +1,65 @@
+@import "../../styles/variables.styles.scss";
+@import "../../styles/mixin.styles.scss";
+
+.status-container {
+  position: inherit;
+  height: 40px;
+  width: fit-content;
+}
+
+.grey-bar {
+  @include bar-items;
+  background-color: $stat-color-bg;
+  width: 200px;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.status-label {
+  padding-left: 4px;
+  filter:brightness(40%);
+}
+
+.status-bar {
+  margin-top: 5px;
+}
+
+.colored-bar-green {
+  @include bar-items;
+  z-index: 4;
+  background-color: $stat-color-green;
+}
+
+.colored-bar-orange {
+  @include bar-items;
+  z-index: 4;
+  background-color: $stat-color-orange;
+}
+
+.colored-bar-yellow {
+  @include bar-items;
+  z-index: 4;
+  background-color: $stat-color-yellow;
+}
+
+.colored-bar-red {
+  @include bar-items;
+  z-index: 4;
+  background-color: $stat-color-red;
+}
+
+.label-green {
+  color: $stat-color-green;
+}
+.label-orange {
+  color: $stat-color-orange;
+}
+.label-yellow {
+  color: $stat-color-yellow;
+}
+.label-red {
+  color: $stat-color-red;
+}
+
+@media screen {
+}

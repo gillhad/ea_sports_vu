@@ -8,19 +8,29 @@ import { IPlayer } from '../interfaces/player.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class RequestPlayerService implements IRequestPlayers{
+export class RequestPlayerService {
   httpClient = inject(HttpClient)
  
-   getPlayers(): Player[] {
+   getPlayers():Player[] {
     console.log("estoy gestionando el get players");
-    const players:Player[] = [];
-     this.httpClient.get<Player[]>("../../assets/players.json").subscribe(
+    let players:Player[] = [];
+    try{
+     this.httpClient.get("../../assets/players.json").subscribe(
       (playerArray:Data)=>{
-        playerArray["players"].forEach((player:IPlayer)=>{
-          players.push(new Player(player));
+        playerArray["players"].forEach((playerItem:IPlayer)=>{
+        
+          players.push(new Player(playerItem));
+         
+        
+          console.log("log final ",players);
         })
       }
     );
+  }catch(e){
+    console.log("hay algun error ",e)
+    throw e;
+  }
+  console.log("send ", players )
     return players;
   }
 

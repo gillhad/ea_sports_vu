@@ -14,5 +14,7 @@ export class Player implements IPlayer{
         this.image2= player.image2;
         this.stats = player.stats;
         this.media = player.media;
+        console.log(this.name);
+        console.log(this.stats);
     }
 }

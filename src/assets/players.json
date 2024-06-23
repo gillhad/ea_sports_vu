@@ -7,35 +7,34 @@
       "stats": [
         {
           "name": "pace",
-          "value": "80"
+          "value": 80
         },
         {
-            "name": "shooting",
-            "value": "87"
-          },
-          {
-            "name": "passing",
-            "value": "90"
-          },
-          {
-            "name": "dribling",
-            "value": "94"
-          },
-          {
-            "name": "defending",
-            "value": "33"
-          },
+          "name": "shooting",
+          "value": 87
+        },
         {
-            "name": "physycal",
-            "value": "64"
-          }
+          "name": "passing",
+          "value": 90
+        },
+        {
+          "name": "dribling",
+          "value": 94
+        },
+        {
+          "name": "defending",
+          "value": 33
+        },
+        {
+          "name": "physical",
+          "value": 64
+        }
       ],
       "media": [
         "https://www.youtube.com/embed/K7ylwMki3mw?si=OGdGcr9Js2Z68_p0",
         "https://www.youtube.com/embed/2zfzaoioxQg?si=mx8AXKi6sRaCUPXB",
         "https://www.youtube.com/embed/rQ7IWWKlPxA?si=zK-p1k6JsCAutSxi",
         "https://www.youtube.com/embed/MEWSjzw2jVw?si=Tbttp5wLzKBcoWDo"
-
       ]
     },
     {
@@ -45,28 +44,28 @@
       "stats": [
         {
           "name": "pace",
-          "value": "81"
+          "value": 81
         },
         {
-            "name": "shooting",
-            "value": "84"
-          },
-          {
-            "name": "passing",
-            "value": "83"
-          },
-          {
-            "name": "dribling",
-            "value": "91"
-          },
-          {
-            "name": "defending",
-            "value": "75"
-          },
+          "name": "shooting",
+          "value": 84
+        },
         {
-            "name": "physycal",
-            "value": "73"
-          }
+          "name": "passing",
+          "value": 83
+        },
+        {
+          "name": "dribling",
+          "value": 91
+        },
+        {
+          "name": "defending",
+          "value": 75
+        },
+        {
+          "name": "physical",
+          "value": 73
+        }
       ],
       "media": [
         "https://www.youtube.com/embed/ghmS-BYtguE?si=1ZX-Pc56zw6V8Yk5",
@@ -82,35 +81,34 @@
       "stats": [
         {
           "name": "diving",
-          "value": "86"
+          "value": 86
         },
         {
-            "name": "handling",
-            "value": "85"
-          },
-          {
-            "name": "shooting",
-            "value": "24"
-          },
-          {
-            "name": "reflexes",
-            "value": "91"
-          },
-          {
-            "name": "speed",
-            "value": "47"
-          },
+          "name": "handling",
+          "value": 85
+        },
         {
-            "name": "positioning",
-            "value": "86"
-          }
+          "name": "shooting",
+          "value": 24
+        },
+        {
+          "name": "reflexes",
+          "value": 91
+        },
+        {
+          "name": "speed",
+          "value": 47
+        },
+        {
+          "name": "positioning",
+          "value": 86
+        }
       ],
-      "media":[
+      "media": [
         "https://www.youtube.com/embed/ycUBgZAM5FA?si=Z8Bk1XTKjvQMpcQs",
         "https://www.youtube.com/embed/Oxq_9WfSWKM?si=dnOV07cTJaRuIeuM",
         "https://www.youtube.com/embed/26p26nQiGLg?si=WMrbKPBrGyRyLzJw",
         "https://www.youtube.com/embed/AWB8RryktsM?si=E2MtbDLpmTKi0tJ9"
-
       ]
     },
     {
@@ -120,30 +118,30 @@
       "stats": [
         {
           "name": "pace",
-          "value": "82"
+          "value": 82
         },
         {
-            "name": "shooting",
-            "value": "90"
-          },
-          {
-            "name": "passing",
-            "value": "91"
-          },
-          {
-            "name": "dribling",
-            "value": "92"
-          },
-          {
-            "name": "defending",
-            "value": "72"
-          },
+          "name": "shooting",
+          "value": 90
+        },
         {
-            "name": "physycal",
-            "value": "78"
-          }
+          "name": "passing",
+          "value": 91
+        },
+        {
+          "name": "dribling",
+          "value": 92
+        },
+        {
+          "name": "defending",
+          "value": 72
+        },
+        {
+          "name": "physical",
+          "value": 78
+        }
       ],
-      "media":[
+      "media": [
         "https://www.youtube.com/embed/SUG85-JCiFw?si=lizGzLf1NTDVkCRW",
         "https://www.youtube.com/embed/y1NXtP8rlHY?si=mSbMzYusqX-i3h0Y",
         "https://www.youtube.com/embed/ibIFTY6e2Yw?si=m6-ROITREb6vdhoZ",
