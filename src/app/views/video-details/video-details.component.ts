@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'app-video-details',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrl: './video-details.component.scss'
 })
 export class VideoDetailsComponent {
+router = inject(Router);
+location = inject(Location);
+player:Player;
+  constructor(){
+    this.player = this.router.getCurrentNavigation()?.extras.state?.['data'];
+    console.log(this.player);
+  }
 
+  navigate(){
+this.location.back();
+  }
 }

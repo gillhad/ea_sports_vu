@@ -2,6 +2,7 @@ import { Component, Input, OnInit, inject } from '@angular/core';
 import { RequestPlayerService } from '../../services/request-player.service';
 import { Player } from '../../models/player';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-player-details',
@@ -11,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PlayerDetailsComponent {
   playerRequest = inject(RequestPlayerService);
   router = inject(Router);
+  location = inject(Location);
   activatedRoute = inject(ActivatedRoute);
   player?: Player;
   playerRandom?: Player;
@@ -21,6 +23,10 @@ export class PlayerDetailsComponent {
   }
 
   navigate() {
-    this.router.navigate(['videos'], { relativeTo: this.activatedRoute });
+    this.router.navigate(['videos'], { relativeTo: this.activatedRoute, state:{data: this.player}});
+  }
+
+  navigateBack(){
+    this.location.back();
   }
 }

@@ -16,6 +16,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from './modules/core/core.module';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 export function HttpLoaderFactory(http: HttpClient) {
 return new TranslateHttpLoader(http, './assets/intl/','.json');
 }
@@ -29,6 +30,7 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
     HomeComponent,
     PlayerDetailsComponent,
     VideoDetailsComponent,
+    SafeUrlPipe,
   ],
   imports: [
     CoreModule,
