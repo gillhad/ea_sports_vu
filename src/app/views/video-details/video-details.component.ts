@@ -11,13 +11,12 @@ import { Player } from '../../models/player';
 export class VideoDetailsComponent {
 router = inject(Router);
 location = inject(Location);
-player:Player;
+media:string[];
   constructor(){
-    this.player = this.router.getCurrentNavigation()?.extras.state?.['data'];
-    console.log(this.player);
-  }
+    this.media = this.router.getCurrentNavigation()?.extras.state?.['data'];
+      }
 
   navigate(){
-this.location.back();
+  this.location.back();
   }
 }

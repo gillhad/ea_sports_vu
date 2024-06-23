@@ -1,8 +1,9 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { RequestPlayerService } from '../../services/request-player.service';
 import { Player } from '../../models/player';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { IPlayer } from '../../interfaces/player.interface';
 
 @Component({
   selector: 'app-player-details',
@@ -15,18 +16,29 @@ export class PlayerDetailsComponent {
   location = inject(Location);
   activatedRoute = inject(ActivatedRoute);
   player?: Player;
-  playerRandom?: Player;
+  id: string = '';
 
   constructor() {
-    this.player = this.router.getCurrentNavigation()?.extras.state?.['data'];
-    console.log(this.player);
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id'];
+    });
+    this.playerRequest.getPlayerById('').subscribe((playerArray: Data) => {
+      playerArray['players'].forEach((playerItem: IPlayer) => {
+        if (playerItem.id === this.id) {
+          this.player = new Player(playerItem);
+        }
+      });
+    });
   }
 
   navigate() {
-    this.router.navigate(['videos'], { relativeTo: this.activatedRoute, state:{data: this.player}});
+    this.router.navigate(['videos'], {
+      relativeTo: this.activatedRoute,
+      state: { data: this.player?.media },
+    });
   }
 
-  navigateBack(){
+  navigateBack() {
     this.location.back();
   }
 }

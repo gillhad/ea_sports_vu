@@ -13,25 +13,14 @@ const routes: Routes = [
     },
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: PlayerDetailsComponent,
      data: {
           breadcrumb: 'details',
         },
-    children: [
-      // {
-      //   path:"",
-      //   component: PlayerDetailsComponent,
-      //   // data: {
-      //   //   breadcrumb: 'details',
-      //   // },
-      // },
-      
-    
-    ],
   },
   {
-    path: 'details/videos',
+    path: 'details/:id/videos',
     component:VideoDetailsComponent,
     data: {
       breadcrumb: 'videos',

@@ -1,6 +1,7 @@
 {
   "players": [
     {
+      "id":"1",
       "name": "Lionel Messi",
       "image1": "https://cdn.futbin.com/content/fifa19/img/players/p251816263.png?v=23",
       "image2": "https://media.contentapi.ea.com/content/dam/ea/easfc/fc-24/ratings/common/full/player-shields/en/158023.png.adapt.265w.png",
@@ -38,6 +39,7 @@
       ]
     },
     {
+      "id":"2",
       "name": "Aitana Bonmatí",
       "image1": "https://cdn2.futbin.com/https%3A%2F%2Fcdn.futbin.com%2Fcontent%2Ffifa24%2Fimg%2Fplayers%2Fp100904963.png?fm=png&ixlib=java-2.1.0&w=448&s=66d0a8683b8b55beffe3482766c698ee",
       "image2": "https://media.contentapi.ea.com/content/dam/ea/easfc/fc-24/ratings/common/full/player-shields/en/241667.png.adapt.265w.png",
@@ -75,6 +77,7 @@
       ]
     },
     {
+      "id":"3",
       "name": "Ter Stegen",
       "image1": "https://cdn.futbin.com/content/fifa20/img/players/p84078528.png?v=23",
       "image2": "https://media.contentapi.ea.com/content/dam/ea/easfc/fc-24/ratings/common/full/player-shields/es/192448.png.adapt.265w.png",
@@ -107,11 +110,12 @@
       "media": [
         "https://www.youtube.com/embed/ycUBgZAM5FA?si=Z8Bk1XTKjvQMpcQs",
         "https://www.youtube.com/embed/Oxq_9WfSWKM?si=dnOV07cTJaRuIeuM",
-        "https://www.youtube.com/embed/26p26nQiGLg?si=WMrbKPBrGyRyLzJw",
+        "https://www.youtube.com/embed/2h8nTfnjYuw?si=j8uzNzPXgBHGoAw6",
         "https://www.youtube.com/embed/AWB8RryktsM?si=E2MtbDLpmTKi0tJ9"
       ]
     },
     {
+      "id":"4",
       "name": "Alexia Putellas",
       "image1": "https://cdn2.futbin.com/https%3A%2F%2Fcdn.futbin.com%2Fcontent%2Ffifa24%2Fimg%2Fplayers%2Fp84113283.png?fm=png&ixlib=java-2.1.0&w=448&s=931bb4b3db2875b1cb2014e1e1139550",
       "image2": "https://media.contentapi.ea.com/content/dam/ea/easfc/fc-24/ratings/common/full/player-shields/en/227203.png.adapt.265w.png",

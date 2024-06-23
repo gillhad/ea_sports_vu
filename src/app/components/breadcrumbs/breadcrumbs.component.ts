@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 import { Router } from '@angular/router';
+import { IBreadCrumbs } from '../../interfaces/breadcrumbs.interface';
 
 
 @Component({
@@ -16,8 +17,15 @@ export class BreadcrumbsComponent implements OnInit{
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       this.breadcrumbs = this.breadcrumbService.breadcrumbs;
-      // console.log("he recibido ",this.breadcrumbs);
     });
+  }
+
+  navigate(bread:IBreadCrumbs){
+    let url = bread.url;
+    if(bread.param!=undefined){
+          url+="/"+bread.param;
+    }
+    this.router.navigate([url])
   }
 
 }
