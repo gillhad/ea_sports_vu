@@ -2,7 +2,7 @@
 ">
     <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
       <ng-container *ngIf="!last">
-        <a [routerLink]="breadcrumb.url">{{ breadcrumb.label.toLowerCase() | translate}}</a> &gt;
+        <a (click)="navigate(breadcrumb)">{{ breadcrumb.label.toLowerCase() | translate}}</a> &gt;
       </ng-container>
       <ng-container *ngIf="last">
         {{ breadcrumb.label.toLowerCase() | translate }} 
