@@ -7,12 +7,14 @@ import { IPlayer } from '../interfaces/player.interface';
 import { Observable } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../environments/environment';
+import { LoggerService } from './logger.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequestPlayerService implements IRequestPlayers {
   httpClient = inject(HttpClient);
+  logger = inject(LoggerService);
 
   path = '../../assets/players.json';
 
@@ -37,7 +39,7 @@ export class RequestPlayerService implements IRequestPlayers {
         });
       });
     } catch (e) {
-      console.log('hay algun error ', e);
+      this.logger.error('hay algun error '+ e);
       throw e;
     }
     return players;
@@ -47,7 +49,7 @@ export class RequestPlayerService implements IRequestPlayers {
     try {
       return this.httpClient.get<Player[]>('../../assets/players.json');
     } catch (e) {
-      console.log('hay algun error ', e);
+      this.logger.error('hay algun error '+ e);
       throw e;
     }
   }

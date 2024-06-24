@@ -58,7 +58,6 @@ export class BreadcrumbsService {
             param: segment.path,
           });
         } else {
-          console.log(segment);
           if (isNaN(parseInt(segment.path))) {
             breadcrumbs.push({ label: segment.path, url: routeUrl });
           } else {

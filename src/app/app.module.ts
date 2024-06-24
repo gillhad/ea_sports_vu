@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { VideoCardComponent } from './components/video-card/video-card.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { HomeComponent } from './views/home/home.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
@@ -25,7 +24,6 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
   declarations: [
     AppComponent,
     PlayerCardComponent,
-    VideoCardComponent,
     StatsComponent,
     HomeComponent,
     PlayerDetailsComponent,

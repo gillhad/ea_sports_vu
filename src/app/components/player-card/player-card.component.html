@@ -1,5 +1,8 @@
 <div class="player-card" (click)="onImageClick()">
-    <img [src]="player.image1" [alt]="player.name" (error)="handleError($event)" />
-    <p *ngIf="showError">{{ player.name }}</p>
-  </div>
-  
+  <img
+    [src]="player.image1"
+    [alt]="player.name"
+    (error)="handleError($event)"
+  />
+  <p *ngIf="showError">{{ player.name }}</p>
+</div>

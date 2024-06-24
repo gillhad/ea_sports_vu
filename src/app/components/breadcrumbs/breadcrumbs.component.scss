@@ -1,25 +1,22 @@
 @import "../../styles/variables.styles.scss";
 
-nav{
-padding-left: 20px;
-padding-top: 5px;
+nav {
+  padding-left: 20px;
+  padding-top: 5px;
 }
 
-
-
-svg{
-    margin: 0;
-    color: $color-font-dark;
+svg {
+  margin: 0;
+  color: $color-font-dark;
 }
 
-a{
-    color: $color-font-dark;
-    font-weight: bold;
-    cursor: pointer;
+a {
+  color: $color-font-dark;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.breadcrumb-container{
-
-    height: 30px;
-    background-color: aqua;
+.breadcrumb-container {
+  height: 30px;
+  background-color: aqua;
 }
