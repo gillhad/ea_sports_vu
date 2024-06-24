@@ -4,6 +4,7 @@ import { Player } from '../../models/player';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IPlayer } from '../../interfaces/player.interface';
+import { LoggerService } from '../../services/logger.service';
 
 @Component({
   selector: 'app-player-details',
@@ -15,6 +16,8 @@ export class PlayerDetailsComponent {
   router = inject(Router);
   location = inject(Location);
   activatedRoute = inject(ActivatedRoute);
+  logger = inject(LoggerService);
+
   player?: Player;
   id: string = '';
 
@@ -33,6 +36,7 @@ export class PlayerDetailsComponent {
   }
 
   navigate() {
+    this.logger.info('navigate to videos');
     this.router.navigate(['videos'], {
       relativeTo: this.activatedRoute,
       state: { data: this.player?.media },

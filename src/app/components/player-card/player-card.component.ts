@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Player } from '../../models/player';
+import { LoggerService } from '../../services/logger.service';
 
 @Component({
   selector: 'app-player-card',
@@ -8,12 +9,14 @@ import { Player } from '../../models/player';
   styleUrl: './player-card.component.scss',
 })
 export class PlayerCardComponent {
+  logger = inject(LoggerService);
+  router = inject(Router);
   @Input() player!: Player;
   showError = false;
 
-  constructor(private router: Router) {}
 
   onImageClick(): void {
+    this.logger.info("move to details");
     this.router.navigate(['/details/'+this.player.id], {
     });
   }
