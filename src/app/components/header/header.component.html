@@ -1,16 +1,35 @@
 <div class="header-container">
-    <a href="https://www.ea.com/es-es/games/ea-sports-fc/ultimate-team/web-app" target="_blank">
-        <img class="img-logo-fifa" src="../../../assets/ea-fifa.svg" alt="fifa logo">
-    </a>
-    <ul class="login-list">
-        <li><i class="fa-solid fa-user"></i> Login</li>
-        <div class="language-switcher">
-              <img class="img-flag" (click)="switchLanguage('en')" src="../../../assets/england-flag.png" alt="English">
-              <img class="img-flag"  (click)="switchLanguage('es')" src="../../../assets/spain-flag.png" alt="Español">
-          </div>
-    </ul>
+  <a
+    href="https://www.ea.com/es-es/games/ea-sports-fc/ultimate-team/web-app"
+    target="_blank"
+  >
+    <img
+      class="img-logo-fifa"
+      src="../../../assets/ea-fifa.svg"
+      alt="fifa logo"
+    />
+  </a>
+  <ul class="login-list">
+    <li (click)="mockError()" >
+      <i *ngIf="isDev" class="fa-solid fa-code"></i>
+      <i class="fa-solid fa-user"></i>
+       Login
+    </li>
+    <div class="language-switcher">
+      <img
+        class="img-flag"
+        (click)="switchLanguage('en')"
+        src="../../../assets/england-flag.png"
+        alt="English"
+      />
+      <img
+        class="img-flag"
+        (click)="switchLanguage('es')"
+        src="../../../assets/spain-flag.png"
+        alt="Español"
+      />
+    </div>
+  </ul>
 </div>
-
-
 
 <app-breadcrumbs></app-breadcrumbs>

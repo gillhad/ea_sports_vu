@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from './modules/core/core.module';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 export function HttpLoaderFactory(http: HttpClient) {
 return new TranslateHttpLoader(http, './assets/intl/','.json');
 }
@@ -42,7 +43,7 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
       }
       })
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), {provide:ErrorHandler,useClass:GlobalErrorHandlerService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
