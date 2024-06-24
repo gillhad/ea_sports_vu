@@ -1,7 +1,7 @@
 {
     "home":"Inicio",
     "details":"Detalles",
-    "videos":"Videos",
+    "media":"Videos",
 
     "back":"Atrás",
     
@@ -13,8 +13,9 @@
     "positioning":"Posicionamiento",
     "pace":"Ritmo",
     "shooting":"Disparo",
-    "passing":"pases",
-    "dribbling":"Regates",
+    "passing":"Pases",
+    "dribling":"Regates",
     "clean":"Portería vacía",
-    "physical":"Físico"
+    "physical":"Físico",
+    "defending":"Defensa"
 }

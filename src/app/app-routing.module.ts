@@ -3,45 +3,42 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
 import { VideoDetailsComponent } from './views/video-details/video-details.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo:"home",
-  },
-  {
-    path: 'home',
     component: HomeComponent,
     data: {
-      breadcrumb: 'Home',
+      breadcrumb: 'home',
+    },
+  },
+  {
+    path: 'details',
+    data: {
+      breadcrumb: null,
     },
     children: [
       {
-        path: 'details',
+        path: ':id',
         component: PlayerDetailsComponent,
         data: {
-          breadcrumb: 'Details',
+          breadcrumb: 'details',
+          id: true,
         },
-        children: [
-          {
-            path: 'videos',
-            component: VideoDetailsComponent,
-            data: {
-              breadcrumb: 'Videos',
-            },
-          },
-        ],
+        
       },
     ],
   },
-//   {
-//     path:"details",component:PlayerDetailsComponent
-//   ,data:{
-// "breadcrumb":"details"
-//   }
-//   },
-  {path:"**",component:HomeComponent} 
+  {
+    path: 'details/:id/videos',
+    component: VideoDetailsComponent,
+    data: {
+      breadcrumb: 'videos',
+    },
+  },
+
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

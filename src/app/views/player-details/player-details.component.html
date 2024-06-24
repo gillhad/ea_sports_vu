@@ -1,1 +1,16 @@
-<p>player-details works!</p>
+<article class="player-details">
+  <div class="player-info">
+    <div class="detail-image">
+      <img
+        src="{{player?.image2}}"
+      />
+    </div>
+    <div class="stats-container" *ngFor="let stat of player?.stats">
+      <app-stats [stat]="stat"></app-stats>
+    </div>
+  </div>
+  <div class="buttons">
+      <button class="button-style" (click)="navigateBack()">{{"back" | translate | uppercase}}</button>
+    <button class="button-style" (click)="navigate()">{{"media" | translate | uppercase}}</button>
+  </div>
+</article>

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../services/lenguage.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-router =inject(Router)
-activatedRoute = inject(ActivatedRoute);
+  constructor(private languageService: LanguageService) {} 
 
-  navigate(){
-this.router.navigate(['home',"details"],{relativeTo:this.activatedRoute})
+  switchLanguage(language: string) {
+    this.languageService.switchLanguage(language); 
   }
 }

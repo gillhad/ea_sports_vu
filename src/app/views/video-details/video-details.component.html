@@ -1,1 +1,22 @@
-<p>video-details works!</p>
+<div class="video-container">
+    <div class="buttons">
+        <button class="button-style" (click)="navigate()">{{"back"| translate}}</button>
+    </div>
+  <div class="video-list" *ngFor="let media of media">
+    <div class="video-frame">
+        <iframe
+        width="100%"
+        height="100%"
+          [src]="
+            media
+              | safeUrl: 'resourceUrl'
+          "
+          title="player video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+    </div>
+  </div>
+</div>

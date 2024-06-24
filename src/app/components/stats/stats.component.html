@@ -1,1 +1,9 @@
-<p>stats works!</p>
+<div class="status-container">
+  <p class="status-label" [ngClass]="getLabel()">
+    {{ stat!.name | translate | uppercase }} {{ stat?.value }}
+  </p>
+  <div class="status-bar">
+    <div class="grey-bar"></div>
+    <div class="colored-bar" [ngStyle]="getWidth()" [ngClass]="getBar()"></div>
+  </div>
+</div>

@@ -1,40 +1,70 @@
 import { Injectable, Pipe } from '@angular/core';
 import { filter } from 'rxjs/operators';
-import { ActivatedRoute, NavigationEnd, Router,  } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { IBreadCrumbs } from '../interfaces/breadcrumbs.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BreadcrumbsService {
-  breadcrumbs: Array<{ label: string, url: string }> = [];
+  breadcrumbs: IBreadCrumbs[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.router.events.pipe(
-      filter((event:any) => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      console.log("hay cambios en breadcrumbs");
-      this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
-      
-    });
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.router.events
+      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
+      });
   }
 
-  private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<{ label: string, url: string }> = []): Array<{ label: string, url: string }> {
+  private createBreadcrumbs(
+    route: ActivatedRoute,
+    url: string = '',
+    breadcrumbs: IBreadCrumbs[] = [],
+  ): IBreadCrumbs[] {
     const children: ActivatedRoute[] = route.children;
-      // breadcrumbs.push({label:"Home",url:""})
+
     if (children.length === 0) {
-      // console.log(breadcrumbs)
       return breadcrumbs;
     }
 
     for (const child of children) {
-      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
-      if (routeURL !== '') {
-        url += `/${routeURL}`;
+      if (child.snapshot.data['breadcrumb'] === null) {
+        return this.createBreadcrumbs(child, url, breadcrumbs);
       }
-      console.log(child);
-console.log(child.snapshot.data['breadcrumb']);
-      breadcrumbs.push({ label: child.snapshot.data['breadcrumb'], url: url });
-      console.log("creamos breadcrum,",breadcrumbs);
+      
+      if(child.routeConfig?.path=="**"){
+        breadcrumbs.push({ label: 'home', url: '' });
+        breadcrumbs.push({ label: '', url: '' });
+        return breadcrumbs;
+      }
+
+      if (
+        breadcrumbs.length === 0 &&
+        child.snapshot.data['breadcrumb'] != 'home'
+      ) {
+        breadcrumbs.push({ label: 'home', url: '' });
+      }
+
+      child.snapshot.url.forEach((segment) => {
+        const routeUrl = '/' + segment.path;
+        if (child.snapshot.data['id']) {
+          breadcrumbs.push({
+            label: child.snapshot.data['breadcrumb'],
+            url: routeUrl,
+            param: segment.path,
+          });
+        } else {
+          if (isNaN(parseInt(segment.path))) {
+            breadcrumbs.push({ label: segment.path, url: routeUrl });
+          } else {
+            breadcrumbs.at(-1)!.param = segment.path;
+          }
+        }
+      });
       return this.createBreadcrumbs(child, url, breadcrumbs);
     }
 

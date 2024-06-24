@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { VideoCardComponent } from './components/video-card/video-card.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { HomeComponent } from './views/home/home.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
@@ -16,6 +15,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CoreModule } from './modules/core/core.module';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 export function HttpLoaderFactory(http: HttpClient) {
 return new TranslateHttpLoader(http, './assets/intl/','.json');
 }
@@ -24,11 +24,11 @@ return new TranslateHttpLoader(http, './assets/intl/','.json');
   declarations: [
     AppComponent,
     PlayerCardComponent,
-    VideoCardComponent,
     StatsComponent,
     HomeComponent,
     PlayerDetailsComponent,
     VideoDetailsComponent,
+    SafeUrlPipe,
   ],
   imports: [
     CoreModule,

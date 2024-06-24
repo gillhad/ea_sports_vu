@@ -1,0 +1,70 @@
+@import "../../styles/variables.styles.scss";
+@import "../../styles/mixin.styles.scss";
+
+.player-details {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  display: inline-block;
+  height: fit-content;
+}
+
+.player-info {
+  display: inline-block;
+  height: max-content;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.detail-image {
+  width: 50%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  img {
+    height: 250px;
+  }
+}
+
+.stats-container {
+  float: right;
+  width: 50%;
+  height: fit-content;
+  display: flex;
+}
+
+.buttons {
+    margin-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+ 
+}
+
+
+.button-style{
+  @include buttons;
+ }
+
+
+ @media screen and (max-width: 700px) {
+   .detail-image{
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+     img{
+        height: 300px;
+     }
+   }
+
+   .stats-container{
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    padding-left: 10%;
+   }
+ }
