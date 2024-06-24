@@ -3,22 +3,13 @@ import { environment } from '../../environments/environment';
 import { LogLevels } from '../models/log-levels';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'platform'
 })
 export class LoggerService {
 
   logLevel: LogLevels = new LogLevels();
-  fileName:string = "";
-  filePath:string ="../../logs";
-  today = new Date();
-
-constructor(){
-  this.fileName = "logger-"+this.today.getDate()+"/"+this.today.getMonth()+"/"+this.today.getDate();
-  this.filePath = this.filePath+this.fileName;
-}
-
  
-
+ 
   info(msg: string) {
     this.logWith(this.logLevel.Info, msg);
   }
@@ -32,7 +23,7 @@ constructor(){
   }
 
   private logWith(levels: number, msg: string) {
-    if (environment.production) {
+    if (!environment.production) {
       if (levels <= this.logLevel.Error) {
         switch (levels) {
           case this.logLevel.None:

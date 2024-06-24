@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LoggerService } from './services/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'ea_sports_vu';
-
+  logger = inject(LoggerService);
   translator = inject(TranslateService);
 
 constructor(){
-this.translator.setDefaultLang('es')
+this.translator.setDefaultLang('es');
 }
 }
