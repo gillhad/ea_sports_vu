@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Stats } from '../../interfaces/stats.interface';
+import { transition } from '@angular/animations';
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
@@ -8,9 +9,12 @@ import { Stats } from '../../interfaces/stats.interface';
 export class StatsComponent {
   @Input() stat?: Stats;
 
+  
+
   getWidth() {
     return {
       width: (this.stat!.value / 100) * 200 + 'px',
+  
     };
   }
 

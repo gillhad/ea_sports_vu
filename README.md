@@ -1,5 +1,27 @@
 # EaSportsVu
 
+Proyecto del VU de Lidia y Cristian.
+Pequeño proyecto que consta de 3 páginas en las que nos centramos en varios aspectos:
+
+### Diseño
+La web consta de 3 páginas, un menú de jugadores, un página de detalles de jugador y un display de videos.
+
+### Encriptación
+Uso de encriptación de variables y gestión de environment.
+En este caso hemos creado una encriptación del path local del json que se ha encriptado en un programa externo.
+En las variables de entorno tenemos el token y la contraseña para la desencriptación tanto en ambiente de desarrollo como de producción. 
+
+### Breadcrumbs
+Creación de menú "breadcrumb" para navegación.
+
+
+## Librerías usadas
+npm install @ngx-translate/core @ngx-translate/http-loader --save
+ng add @angular-eslint/schematics
+npm install prettier --save-dev
+npm install crypto-js
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Development server
