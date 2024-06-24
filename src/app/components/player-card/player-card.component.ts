@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
 import { Player } from '../../models/player';
 import { LoggerService } from '../../services/logger.service';
@@ -16,6 +16,11 @@ export class PlayerCardComponent {
 
 
   onImageClick(): void {
+    if(isDevMode()){
+      console.log("Es dev mode")
+    }else{
+      console.log("no es dev mode")
+    }
     this.logger.info("move to details");
     this.router.navigate(['/details/'+this.player.id], {
     });
