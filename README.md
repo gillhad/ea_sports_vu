@@ -3,6 +3,9 @@
 Proyecto del VU de Lidia y Cristian.
 Pequeño proyecto que consta de 3 páginas en las que nos centramos en varios aspectos:
 
+URL:
+production: https://ea-sports-vu.vercel.app/
+
 ### Diseño
 La web consta de 3 páginas, un menú de jugadores, un página de detalles de jugador y un display de videos.
 
