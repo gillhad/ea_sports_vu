@@ -27,24 +27,29 @@
 .colored-bar-green {
   @include bar-items;
   z-index: 4;
+  width: 0px;
   background-color: $stat-color-green;
 }
 
 .colored-bar-orange {
   @include bar-items;
   z-index: 4;
+  width: 0px;
   background-color: $stat-color-orange;
+  transition: width 2s;
 }
 
 .colored-bar-yellow {
   @include bar-items;
   z-index: 4;
+  width: 0px;
   background-color: $stat-color-yellow;
 }
 
 .colored-bar-red {
   @include bar-items;
   z-index: 4;
+  width: 0px;
   background-color: $stat-color-red;
 }
 
@@ -62,4 +67,10 @@
 }
 
 @media screen {
+  
+}
+
+
+@keyframes width {
+
 }

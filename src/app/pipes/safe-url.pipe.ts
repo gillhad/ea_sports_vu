@@ -25,7 +25,6 @@ export class SafeUrlPipe implements PipeTransform {
       case 'script':
         return this.sanitizer.bypassSecurityTrustScript(value);
       case 'url':
-        console.log(this.sanitizer.bypassSecurityTrustUrl(value));
         return this.sanitizer.bypassSecurityTrustUrl(value);
       case 'resourceUrl':
         return this.sanitizer.bypassSecurityTrustResourceUrl(value);

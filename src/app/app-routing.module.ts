@@ -14,19 +14,28 @@ const routes: Routes = [
     },
   },
   {
-    path: 'details/:id',
-    component: PlayerDetailsComponent,
-     data: {
+    path: 'details',
+    data: {
+      breadcrumb: null,
+    },
+    children: [
+      {
+        path: ':id',
+        component: PlayerDetailsComponent,
+        data: {
           breadcrumb: 'details',
+          id: true,
         },
+        
+      },
+    ],
   },
   {
     path: 'details/:id/videos',
-    component:VideoDetailsComponent,
+    component: VideoDetailsComponent,
     data: {
       breadcrumb: 'videos',
-    }
-    
+    },
   },
 
   { path: '**', component: NotFoundComponent },

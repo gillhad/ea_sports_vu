@@ -32,6 +32,16 @@ export class BreadcrumbsService {
     }
 
     for (const child of children) {
+      if (child.snapshot.data['breadcrumb'] === null) {
+        return this.createBreadcrumbs(child, url, breadcrumbs);
+      }
+      
+      if(child.routeConfig?.path=="**"){
+        breadcrumbs.push({ label: 'home', url: '' });
+        breadcrumbs.push({ label: '', url: '' });
+        return breadcrumbs;
+      }
+
       if (
         breadcrumbs.length === 0 &&
         child.snapshot.data['breadcrumb'] != 'home'
@@ -40,15 +50,25 @@ export class BreadcrumbsService {
       }
 
       child.snapshot.url.forEach((segment) => {
-        if (isNaN(parseInt(segment.path))) {
-          const routeUrl = '/' + segment.path;
-          breadcrumbs.push({ label: segment.path, url: routeUrl });
+        const routeUrl = '/' + segment.path;
+        if (child.snapshot.data['id']) {
+          breadcrumbs.push({
+            label: child.snapshot.data['breadcrumb'],
+            url: routeUrl,
+            param: segment.path,
+          });
         } else {
-          breadcrumbs.at(-1)!.param = segment.path;
+          console.log(segment);
+          if (isNaN(parseInt(segment.path))) {
+            breadcrumbs.push({ label: segment.path, url: routeUrl });
+          } else {
+            breadcrumbs.at(-1)!.param = segment.path;
+          }
         }
       });
       return this.createBreadcrumbs(child, url, breadcrumbs);
     }
+
     return breadcrumbs;
   }
 }

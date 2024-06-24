@@ -22,6 +22,7 @@ export class PlayerDetailsComponent {
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];
     });
+
     this.playerRequest.getPlayerById('').subscribe((playerArray: Data) => {
       playerArray['players'].forEach((playerItem: IPlayer) => {
         if (playerItem.id === this.id) {
