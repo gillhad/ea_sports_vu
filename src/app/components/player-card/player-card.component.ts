@@ -1,4 +1,4 @@
-import { Component, Input, inject, isDevMode } from '@angular/core';
+import { Component, Input, inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { Player } from '../../models/player';
 import { LoggerService } from '../../services/logger.service';
@@ -20,7 +20,7 @@ export class PlayerCardComponent {
     });
   }
 
-  handleError(event: Event): void {
+  handleError(): void {
     this.showError = true;
   }
 }

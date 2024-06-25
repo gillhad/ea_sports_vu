@@ -17,5 +17,10 @@
     "dribling":"Regates",
     "clean":"Portería vacía",
     "physical":"Físico",
-    "defending":"Defensa"
+    "defending":"Defensa",
+
+
+
+    "@@_errors":"",
+    "basic_error":"Error básico"
 }

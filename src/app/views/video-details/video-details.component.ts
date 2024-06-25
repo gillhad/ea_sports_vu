@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -15,6 +15,7 @@ export class VideoDetailsComponent {
 
   constructor() {
     this.media = this.router.getCurrentNavigation()?.extras.state?.['data'];
+    
   }
 
   navigate() {

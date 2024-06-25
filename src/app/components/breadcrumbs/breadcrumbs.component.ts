@@ -25,11 +25,7 @@ export class BreadcrumbsComponent implements OnInit{
 
   navigate(bread:IBreadCrumbs){
     this.logger.info("breadcrumb navigation");
-    let url = bread.url;
-    if(bread.param!=undefined){
-          url+="/"+bread.param;
-    }
-    this.router.navigate([url])
+    this.router.navigate([bread.url])
   }
 
 }

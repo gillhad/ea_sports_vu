@@ -2,7 +2,7 @@
   <img
     [src]="player.image1"
     [alt]="player.name"
-    (error)="handleError($event)"
+    (error)="handleError()"
   />
   <p *ngIf="showError">{{ player.name }}</p>
 </div>
