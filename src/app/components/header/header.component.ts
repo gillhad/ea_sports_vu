@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, isDevMode } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../services/lenguage.service';
 import { environment } from '../../../environments/environment';
@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class HeaderComponent {
   languageService = inject(LanguageService)
+ 
   isDev:boolean = false;
   constructor() {
     this.isDev = !environment.production;
@@ -20,6 +21,6 @@ export class HeaderComponent {
   }
 
   mockError(){
-    throw Error;
+    throw Error("Mocking error only develop");
   }
 }
