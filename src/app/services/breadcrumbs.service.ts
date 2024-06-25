@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { filter } from 'rxjs/operators';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
+import { filter, map } from 'rxjs/operators';
+import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Route, Router, RouterState, RouterStateSnapshot } from '@angular/router';
 import { IBreadCrumbs } from '../interfaces/breadcrumbs.interface';
 
 @Injectable({
@@ -8,66 +8,40 @@ import { IBreadCrumbs } from '../interfaces/breadcrumbs.interface';
 })
 export class BreadcrumbsService {
   breadcrumbs: IBreadCrumbs[] = [];
-
+  private router = inject(Router)
+  private activatedRoute = inject(ActivatedRoute);
+  
   constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
+        this.breadcrumbs = this.createBreadcrumbs(this.router.routerState.snapshot.root);
       });
   }
 
+
   private createBreadcrumbs(
-    route: ActivatedRoute,
+    route: ActivatedRouteSnapshot,
     url: string = '',
     breadcrumbs: IBreadCrumbs[] = [],
   ): IBreadCrumbs[] {
-    const children: ActivatedRoute[] = route.children;
-
+    const children: ActivatedRouteSnapshot[] = route.children;
     if (children.length === 0) {
       return breadcrumbs;
     }
 
     for (const child of children) {
-      if (child.snapshot.data['breadcrumb'] === null) {
-        return this.createBreadcrumbs(child, url, breadcrumbs);
+      const routeURL: string = child.url.map(segment => segment.path).join('/');
+      if (routeURL !== '') {
+        url += `/${routeURL}`;
       }
-      
-      if(child.routeConfig?.path=="**"){
-        breadcrumbs.push({ label: 'home', url: '' });
-        breadcrumbs.push({ label: '', url: '' });
-        return breadcrumbs;
+      if( child.data['breadcrumb']===null){
+       return this.createBreadcrumbs(child, url, breadcrumbs);
       }
-
-      if (
-        breadcrumbs.length === 0 &&
-        child.snapshot.data['breadcrumb'] != 'home'
-      ) {
-        breadcrumbs.push({ label: 'home', url: '' });
-      }
-
-      child.snapshot.url.forEach((segment) => {
-        const routeUrl = '/' + segment.path;
-        if (child.snapshot.data['id']) {
-          breadcrumbs.push({
-            label: child.snapshot.data['breadcrumb'],
-            url: routeUrl,
-            param: segment.path,
-          });
-        } else {
-          if (isNaN(parseInt(segment.path))) {
-            breadcrumbs.push({ label: segment.path, url: routeUrl });
-          } else {
-            breadcrumbs.at(-1)!.param = segment.path;
-          }
-        }
-      });
-      return this.createBreadcrumbs(child, url, breadcrumbs);
+      breadcrumbs.push({ label: child.data['breadcrumb'], url: url});
+      this.createBreadcrumbs(child, url, breadcrumbs);
     }
-
     return breadcrumbs;
   }
 }

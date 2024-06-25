@@ -15,6 +15,7 @@ export class VideoDetailsComponent {
 
   constructor() {
     this.media = this.router.getCurrentNavigation()?.extras.state?.['data'];
+    
   }
 
   navigate() {

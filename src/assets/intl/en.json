@@ -17,5 +17,10 @@
     "dribling":"Dribbling",
     "clean":"Clean",
     "physical":"Physics",
-    "defending":"Defending"
+    "defending":"Defending",
+
+
+    
+    "@@_errors":"",
+    "basic_error":"Basic error"
 }

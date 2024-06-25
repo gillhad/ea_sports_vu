@@ -26,14 +26,13 @@ export class PlayerDetailsComponent implements OnInit{
       this.id = params['id'];
     });
 
-
-    this.playerRequest.getPlayerById().subscribe((playerArray: Data) => {
-      playerArray['players'].forEach((playerItem: IPlayer) => {
-        if (playerItem.id === this.id) {
-          this.player = new Player(playerItem);
-        }
-      });
+    
+    console.log("aaaaa");
+    this.playerRequest.getPlayerById(this.id).subscribe((player: Player) => {
+      console.log("recibimos el player", player);
+      this.player = player;
     });
+    console.log("acabamos de gestionar el player");
   }
 
   navigate() {
