@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RequestPlayerService } from '../../services/request-player.service';
 import { Player } from '../../models/player';
 import { of } from 'rxjs';
-import { LoggerService } from '../../services/logger.service';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +9,8 @@ import { LoggerService } from '../../services/logger.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  playerService = inject(RequestPlayerService);
-  logger = inject(LoggerService);
+  private playerService = inject(RequestPlayerService);
   players: Player[] = [];
-
-  constructor() {}
 
   ngOnInit(): void {
     const players = this.playerService.getPlayers();

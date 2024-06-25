@@ -11,14 +11,14 @@ import { LoggerService } from '../../services/logger.service';
   styleUrl: './breadcrumbs.component.scss'
 })
 export class BreadcrumbsComponent implements OnInit{
-logger = inject(LoggerService);
+  private logger = inject(LoggerService);
+  private breadcrumbService = inject(BreadcrumbsService);
+  private router = inject(Router);
 
   breadcrumbs: Array<{ label: string, url: string }> = [];
-  private breadcrumbService = inject(BreadcrumbsService)
-  private router = inject(Router)
   
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe(() => {
       this.breadcrumbs = this.breadcrumbService.breadcrumbs;
     });
   }

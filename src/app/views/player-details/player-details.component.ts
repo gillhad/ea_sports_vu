@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RequestPlayerService } from '../../services/request-player.service';
 import { Player } from '../../models/player';
 import { ActivatedRoute, Data, Router } from '@angular/router';
@@ -11,22 +11,23 @@ import { LoggerService } from '../../services/logger.service';
   templateUrl: './player-details.component.html',
   styleUrl: './player-details.component.scss',
 })
-export class PlayerDetailsComponent {
-  playerRequest = inject(RequestPlayerService);
-  router = inject(Router);
-  location = inject(Location);
-  activatedRoute = inject(ActivatedRoute);
-  logger = inject(LoggerService);
+export class PlayerDetailsComponent implements OnInit{
+  private playerRequest = inject(RequestPlayerService);
+  private router = inject(Router);
+  private location = inject(Location);
+  private activatedRoute = inject(ActivatedRoute);
+  private logger = inject(LoggerService);
 
   player?: Player;
   id: string = '';
 
-  constructor() {
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];
     });
 
-    this.playerRequest.getPlayerById('').subscribe((playerArray: Data) => {
+
+    this.playerRequest.getPlayerById().subscribe((playerArray: Data) => {
       playerArray['players'].forEach((playerItem: IPlayer) => {
         if (playerItem.id === this.id) {
           this.player = new Player(playerItem);

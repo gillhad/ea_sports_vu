@@ -13,8 +13,8 @@ import { LoggerService } from './logger.service';
   providedIn: 'root',
 })
 export class RequestPlayerService implements IRequestPlayers {
-  httpClient = inject(HttpClient);
-  logger = inject(LoggerService);
+  private httpClient = inject(HttpClient);
+  private logger = inject(LoggerService);
 
   path = '../../assets/players.json';
 
@@ -45,7 +45,7 @@ export class RequestPlayerService implements IRequestPlayers {
     return players;
   }
 
-  getPlayerById(id: string): Observable<Player[]> {
+  getPlayerById(): Observable<Player[]> {
     try {
       return this.httpClient.get<Player[]>('../../assets/players.json');
     } catch (e) {

@@ -1,4 +1,4 @@
-import { Injectable, Pipe } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { IBreadCrumbs } from '../interfaces/breadcrumbs.interface';
@@ -14,7 +14,7 @@ export class BreadcrumbsService {
     private activatedRoute: ActivatedRoute,
   ) {
     this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
       });

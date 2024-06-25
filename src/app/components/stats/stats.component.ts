@@ -9,8 +9,6 @@ import { transition } from '@angular/animations';
 export class StatsComponent {
   @Input() stat?: Stats;
 
-  
-
   getWidth() {
     return {
       width: (this.stat!.value / 100) * 200 + 'px',
