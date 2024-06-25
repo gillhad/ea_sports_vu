@@ -5,38 +5,89 @@ import { PlayerDetailsComponent } from './views/player-details/player-details.co
 import { VideoDetailsComponent } from './views/video-details/video-details.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: HomeComponent,
+//     data: {
+//       breadcrumb: 'home',
+//     },
+//   },
+//   {
+//     path: 'details',
+//     data: {
+//       breadcrumb: null,
+//     },
+//     children: [
+//       {
+//         path: ':id',
+//         component: PlayerDetailsComponent,
+//         data: {
+//           breadcrumb: 'details',
+//           id: true,
+//         },
+//       },
+//     ],
+//   },
+//   {
+//     path: 'details/:id/videos',
+//     component: VideoDetailsComponent,
+//     data: {
+//       breadcrumb: 'videos',
+//     },
+//   },
+
+//   { path: '**', component: NotFoundComponent },
+// ];
+
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
     data: {
       breadcrumb: 'home',
     },
-  },
-  {
-    path: 'details',
-    data: {
-      breadcrumb: null,
-    },
     children: [
       {
-        path: ':id',
-        component: PlayerDetailsComponent,
+        path: '',
+        component: HomeComponent,
+        data: {
+          breadcrumb: null,
+        },
+      },
+      {
+        path: 'details/:id',
+
         data: {
           breadcrumb: 'details',
-          id: true,
         },
         
+        children: [
+          {
+            path: '',
+            component: PlayerDetailsComponent,
+            data: {
+              breadcrumb: null,
+            },
+          },
+          {
+            path: 'videos',
+            data: {
+              breadcrumb: 'videos',
+            },
+            component: VideoDetailsComponent,
+          },
+        ],
       },
     ],
   },
-  {
-    path: 'details/:id/videos',
-    component: VideoDetailsComponent,
-    data: {
-      breadcrumb: 'videos',
-    },
-  },
+
+  // {
+  //   path: 'details/:id/videos',
+  //   component: VideoDetailsComponent,
+  //   data: {
+  //     breadcrumb: 'videos',
+  //   },
+  // },
 
   { path: '**', component: NotFoundComponent },
 ];

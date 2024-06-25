@@ -4,7 +4,7 @@ import { Player } from '../models/player';
 import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
 import { IPlayer } from '../interfaces/player.interface';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../environments/environment';
 import { LoggerService } from './logger.service';
@@ -45,10 +45,22 @@ export class RequestPlayerService implements IRequestPlayers {
     return players;
   }
 
-  getPlayerById(): Observable<Player[]> {
+  getPlayerById(id:string): Observable<Player> {
+    console.log("gestionamos el getpLayer")
     try {
-      return this.httpClient.get<Player[]>('../../assets/players.json');
+      return this.httpClient.get<Player[]>('../../assets/players.json')
+      .pipe(
+        map((response:Data)=>{
+           const player =  response['players']!.find((player:Player)=>player.id === id);
+           if(!player){
+            console.log("error 1");
+            throw new Error("not found");
+           }
+           return player;
+        })
+      );
     } catch (e) {
+      console.log("error 2")
       this.logger.error('hay algun error '+ e);
       throw e;
     }

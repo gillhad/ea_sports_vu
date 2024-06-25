@@ -6,5 +6,5 @@ import { Observable } from "rxjs";
 export abstract class IRequestPlayers {
     abstract getPlayers():Player[];
     abstract getPath():void;
-    abstract getPlayerById(id: string): Observable<Player[]>
+    abstract getPlayerById(id: string): Observable<Player>
 }
