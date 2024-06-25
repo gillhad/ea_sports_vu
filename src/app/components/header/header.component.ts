@@ -1,5 +1,4 @@
-import { Component, OnInit, inject, isDevMode } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { LanguageService } from '../../services/lenguage.service';
 import { environment } from '../../../environments/environment';
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Stats } from '../../interfaces/stats.interface';
-import { transition } from '@angular/animations';
+
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
