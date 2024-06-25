@@ -12,7 +12,7 @@ import {
   name: 'safeUrl',
 })
 export class SafeUrlPipe implements PipeTransform {
-  sanitizer = inject(DomSanitizer);
+  private sanitizer = inject(DomSanitizer);
   transform(
     value: string,
     type: string,

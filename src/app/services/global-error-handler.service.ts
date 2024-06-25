@@ -5,7 +5,7 @@ import { LoggerService } from './logger.service';
   providedIn: 'root'
 })
 export class GlobalErrorHandlerService implements ErrorHandler{
-  logger = inject(LoggerService)
+  private logger = inject(LoggerService)
 
   handleError(error: any): void {
     this.logger.error(error);
