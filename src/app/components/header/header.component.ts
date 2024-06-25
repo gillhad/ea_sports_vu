@@ -1,4 +1,4 @@
-import { Component, inject, isDevMode } from '@angular/core';
+import { Component, OnInit, inject, isDevMode } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../services/lenguage.service';
 import { environment } from '../../../environments/environment';
@@ -6,21 +6,22 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
-  languageService = inject(LanguageService)
- 
-  isDev:boolean = false;
-  constructor() {
-    this.isDev = !environment.production;
-  } 
+export class HeaderComponent implements OnInit {
+  private languageService = inject(LanguageService);
 
-  switchLanguage(language: string) {
-    this.languageService.switchLanguage(language); 
+  isDev: boolean = false;
+
+  ngOnInit(): void {
+    this.isDev = !environment.production;
   }
 
-  mockError(){
-    throw Error("Mocking error only develop");
+  switchLanguage(language: string) {
+    this.languageService.switchLanguage(language);
+  }
+
+  mockError() {
+    throw Error('Mocking error only develop');
   }
 }
